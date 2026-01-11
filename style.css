@@ -1,0 +1,391 @@
+:root {
+    --glow-light: rgba(210, 180, 140, 0.55); /* Aydınlık tema glow */
+    --glow-dark: rgba(138, 43, 226, 0.55);  /* Karanlık tema glow */
+    --active-glow: rgba(138, 43, 226, 0.55); /* Varsayılan */
+}
+
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* TEMA DEĞİŞKENLERİ */
+:root {
+    --bg-gradient: linear-gradient(135deg, #ffe8cd, #cabba8);
+    --text-color: #1a1a1a;
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* KARANLIK TEMA */
+body.dark {
+    --bg-gradient: linear-gradient(135deg, #1e082e, #000000);
+    --text-color: #f3f3f3;
+    --card-bg: rgba(24, 24, 29, 0.85);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+}
+
+
+/* GENEL */
+body {
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    font-family: Arial, Helvetica, sans-serif;
+    transition: background 0.6s ease, color 0.4s ease;
+}
+
+
+/* TEMA BUTONU */
+#themeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    padding: 10px 16px;
+
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+
+    background: var(--card-bg);
+    color: var(--text-color);
+
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#themeToggle:hover {
+    transform: scale(1.05);
+}
+
+/* ANA ALAN */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    
+    margin-top: 10px;   /* Butonlardan sonra hafif boşluk */
+}
+
+
+/* =====================
+   SOSYAL BUTONLAR
+===================== */
+
+.social-buttons {
+    display: flex;
+    gap: 32px;          /* Butonlar arası mesafe arttı */
+    margin-bottom: 60px; /* İsimden daha yukarı alır */
+}
+
+/* GENEL BUTON */
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 16px 28px; /* Buton büyütüldü */
+    border-radius: 36px;
+
+    font-size: 16px;    /* Yazı biraz büyüdü */
+    font-weight: 600;
+    text-decoration: none;
+
+    color: white;
+    box-shadow: var(--shadow);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        opacity 0.4s ease,
+        filter 0.4s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+/* ICON */
+.social-btn .icon svg {
+    width: 18px;
+    height: 18px;
+    fill: white;
+}
+
+/* INSTAGRAM */
+.social-btn.instagram {
+    background: linear-gradient(
+        135deg,
+        #f58529,
+        #dd2a7b,
+        #8134af,
+        #515bd4
+    );
+}
+
+/* GITHUB */
+.social-btn.github {
+    background: linear-gradient(
+        135deg,
+        #24292e,
+        #000000
+    );
+}
+
+
+
+/* AÇILIŞ ANİMASYONU */
+@keyframes modalFade {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* TEMA GEÇİŞİNDE BUTON ANİMASYONU */
+body.theme-transition .social-btn {
+    opacity: 0.9;
+    transform: scale(0.96);
+    filter: blur(0.3px);
+}
+
+/* TEMA BUTONU GEÇİŞ ANİMASYONU */
+/* TEMA BUTONU – YUMUŞAK GEÇİŞ */
+body.theme-transition #themeToggle {
+    transform: scale(0.92);
+    opacity: 0.8;
+    filter: blur(0.4px);
+}
+
+
+#themeToggle {
+    /* diğer stiller aynen kalsın */
+
+transition:
+    transform 0.35s ease,
+    opacity 0.3s ease,
+    filter 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
+
+}
+
+
+@keyframes themeGlow {
+    0% {
+        box-shadow: 0 0 0 0 transparent;
+    }
+    50% {
+        box-shadow: 0 0 18px 6px var(--active-glow);
+    }
+    100% {
+        box-shadow: 0 0 0 0 transparent;
+    }
+}
+
+#themeToggle.glow {
+    animation: themeGlow 0.6s ease-out;
+}
+/* =====================
+   İNTRO KISMI LA GARDAŞ
+   
+===================== */
+
+#intro {
+    position: fixed;
+    inset: 0;
+    background: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+    transition: opacity 0.8s ease;
+}
+
+#intro.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-content {
+    text-align: center;
+    transform: translateY(-40px);
+}
+
+.intro-content h1 {
+    font-size: clamp(2.8rem, 6vw, 4.2rem);
+    letter-spacing: 0.22em;
+    font-weight: 600;
+
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.intro-text {
+    margin-top: 18px;
+    font-size: 1rem;
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards;
+    animation-delay: 0.3s;
+}
+
+#skipIntro {
+    margin-top: 32px;
+    padding: 10px 26px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background-color: #000000;
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards;
+    animation-delay: 0.6s;
+}
+
+/* Ortak animasyon */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.hepsi{
+    margin-top: -150px;
+}
+
+.main-action-btn {
+    margin-top: 28px;
+    padding: 16px 42px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    border-radius: 999px;
+    text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.08em;
+    display: inline-block;
+
+    background: linear-gradient(135deg, #d3b489, #fff1dc);
+    color: #1a1a1a;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.3s ease;
+}
+
+body.dark .main-action-btn {
+    background: linear-gradient(135deg, #6a1bb1, #dcb5ff);
+    color: #fff;
+}
+
+.main-action-btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.skills-section {
+    padding: 120px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.skill-card {
+    opacity: 0;
+    transform: translateY(30px);
+    margin-bottom: 32px;
+
+    padding: 28px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+body.dark .skill-card {
+    background: rgba(0,0,0,0.35);
+}
+
+.skill-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/*
+TAHMİNİMCE SKİLLS HTML İNİN CSS KISMI
+*/
+
+/* =====================
+   SKILLS PAGE INTRO
+===================== */
+
+#skills-intro {
+    position: fixed;
+    inset: 0;
+    background: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+    transition: opacity 0.6s ease;
+}
+
+#skills-intro.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#skills-intro h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: 0.15em;
+    font-weight: 600;
+
+    opacity: 0;
+    transform: translateY(10px);
+    animation: skillsIntroText 0.8s ease forwards;
+}
+
+@keyframes skillsIntroText {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
