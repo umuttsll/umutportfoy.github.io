@@ -1,3 +1,34 @@
+// ❄️ Snow fix – anasayfa reset
+window.addEventListener("load", () => {
+    const oldMsg = document.getElementById("home-msg");
+    if (oldMsg) oldMsg.remove();
+
+    document.body.style.transform = "none";
+    document.body.style.overflow = "visible";
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+        document.body.classList.add("dark");
+        document.body.classList.remove("light");
+
+        const themeBtn = document.getElementById("theme-btn");
+        if (themeBtn) themeBtn.textContent = "AYDINLIK TEMA";
+    } else {
+        document.body.classList.add("light");
+        document.body.classList.remove("dark");
+
+        const themeBtn = document.getElementById("theme-btn");
+        if (themeBtn) themeBtn.textContent = "KARANLIK TEMA";
+    }
+});
+
+
+
+
 const toggleBtn = document.getElementById("themeToggle");
 
 
@@ -89,3 +120,91 @@ window.addEventListener("load", () => {
     }, 1500);
 
 });
+
+
+// Back button scroll animasyonu
+const backBtn = document.querySelector(".back-btn");
+
+if (backBtn) {
+    const btnObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    btnObserver.observe(backBtn);
+}
+
+
+
+const homeBtn = document.getElementById("home-btn");
+
+if (homeBtn) {
+    homeBtn.addEventListener("click", () => {
+        const msg = document.createElement("div");
+        msg.id = "home-msg";
+        msg.textContent = "ANASAYFA";
+        document.body.appendChild(msg);
+
+        setTimeout(() => {
+            msg.remove();
+            window.location.href = "index.html";
+        }, 100);
+    });
+}
+
+
+
+// kar yağma animasyonu
+
+/* ============================
+   ❄️ WINTER MODE - KAR YAĞIŞI
+   ============================ */
+
+window.addEventListener("load", () => {
+    const snowContainer = document.getElementById("snow-container");
+
+    if (!snowContainer) {
+        console.error("❌ snow-container bulunamadı");
+        return;
+    }
+
+    function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.className = "snowflake";
+        snowflake.innerHTML = "❄";
+
+        snowflake.style.left = Math.random() * window.innerWidth + "px";
+        snowflake.style.fontSize = Math.random() * 10 + 10 + "px";
+        snowflake.style.animationDuration = Math.random() * 5 + 5 + "s";
+        snowflake.style.opacity = Math.random();
+
+        snowContainer.appendChild(snowflake);
+
+        setTimeout(() => snowflake.remove(), 10000);
+    }
+
+    setInterval(createSnowflake, 200);
+});
+
+
+
+// İLETİŞİM BUTONU KODLARI
+
+const contactBtn = document.getElementById("contact-btn");
+const popupOverlay = document.getElementById("popup-overlay");
+const popupClose = document.getElementById("popup-close");
+
+contactBtn.addEventListener("click", () => {
+    popupOverlay.classList.add("active");
+});
+
+popupClose.addEventListener("click", () => {
+    popupOverlay.classList.remove("active");
+});
+
+
+
+

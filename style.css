@@ -14,7 +14,7 @@
 
 /* TEMA DEĞİŞKENLERİ */
 :root {
-    --bg-gradient: linear-gradient(135deg, #ffe8cd, #cabba8);
+    --bg-gradient: linear-gradient(135deg, #cabba8, #fdf0e0);
     --text-color: #1a1a1a;
     --card-bg: rgba(255, 255, 255, 0.75);
     --border-color: rgba(0, 0, 0, 0.1);
@@ -223,7 +223,7 @@ transition:
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
+    z-index: 9000;
 
     transition: opacity 0.8s ease;
 }
@@ -295,7 +295,7 @@ transition:
     letter-spacing: 0.08em;
     display: inline-block;
 
-    background: linear-gradient(135deg, #d3b489, #fff1dc);
+    background: linear-gradient(135deg, #cabba8, #887e70);
     color: #1a1a1a;
 
     transition:
@@ -361,7 +361,7 @@ TAHMİNİMCE SKİLLS HTML İNİN CSS KISMI
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9999;
+    z-index: 9000;
 
     transition: opacity 0.6s ease;
 }
@@ -387,5 +387,326 @@ TAHMİNİMCE SKİLLS HTML İNİN CSS KISMI
         transform: translateY(0);
     }
 }
+
+/* Back Button Wrapper: Yatay ortalama */
+.back-btn-wrapper {
+    display: flex;
+    justify-content: center; /* yatay ortalama */
+    margin-top: 40px;        /* kartların hemen altına boşluk */
+}
+
+/* Back Button */
+.back-btn {
+    padding: 18px 42px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 999px;
+    text-decoration: none;
+    background: linear-gradient(135deg, #bfa27a, #e7d3b1);
+    color: #1a1a1a;
+
+    transition: transform 0.3s ease, box-shadow 0.4s ease, opacity 0.3s ease;
+}
+
+/* Hover animasyonu ve glow */
+.back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 5px rgba(191, 162, 122, 0.6);
+}
+
+/* Dark Mode */
+body.dark .back-btn {
+    background: linear-gradient(135deg, #6a1bb1, #0f0f0f);
+    color: #fff;
+}
+
+body.dark .back-btn:hover {
+    box-shadow: 0 0 20px 5px rgba(106, 27, 177, 0.6);
+}
+
+/* Başlangıçta gizli ve biraz aşağıda */
+.back-btn {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.3s ease;
+}
+
+/* Show class ile görünür ve yukarı kayar */
+.back-btn.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Skill Button */
+.skill-btn {
+  width: 100%;
+  padding: 18px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #bfa27a, #e7d3b1);
+  color: #1a1a1a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 15px rgba(191, 162, 122, 0.6);
+}
+
+body.dark .skill-btn {
+  background: linear-gradient(135deg, #6a1bb1, #0f0f0f);
+  color: #fff;
+}
+
+
+
+/* ANASAYFA butonu tema butonuyla aynı boyutta ve uyumlu renk *//* Tema butonları ve ANASAYFA butonu ortak stil */
+/* Tema butonları ve ANASAYFA butonu dikey olarak ortalanacak */
+.theme-btn, #home-btn {
+    margin-left: 100px;
+    display: block;              /* yataydan dikeye geç */
+    width: 160px;                /* boyutu aynı yap */
+    margin: 80px 21px 0 auto;    /* üstten 10px boşluk, yatayda ortala */
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+
+/* Hover efektleri */
+.theme-btn:hover, #home-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+/* Aydınlık tema renkleri */
+body.light .theme-btn {
+    background: linear-gradient(135deg, #bfa27a, #e7d3b1); /* bej degrade */
+    color: #333;
+}
+
+body.light .theme-btn:hover {
+    box-shadow: 0 0 12px rgba(255, 223, 150, 0.6);
+}
+
+body.light #home-btn {
+    background: linear-gradient(135deg, #bfa27a, #e7d3b1); /* yeşil degrade */
+    color: #fff;
+}
+
+body.light #home-btn:hover {
+    box-shadow: 0 0 12px rgba(248, 49, 255, 0.5);
+}
+
+/* Karanlık tema renkleri */
+body.dark .theme-btn {
+    background: linear-gradient(135deg, #6a1b9a, #4527a0); /* mor degrade */
+    color: #fff;
+}
+
+body.dark .theme-btn:hover {
+    box-shadow: 0 0 12px rgba(123, 31, 162, 0.5);
+}
+
+body.dark #home-btn {
+    background: linear-gradient(135deg, #6a1bb1, #0f0f0f); /* koyu yeşil degrade */
+    color: #fff;
+}
+
+body.dark #home-btn:hover {
+    box-shadow: 0 0 12px rgba(248, 49, 255, 0.5);
+}
+
+/* ANASAYFA yazısı intro animasyonu */
+#home-msg {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(6px);
+
+    opacity: 0;
+    transition: opacity 1.2s ease;
+
+    z-index: 9000;
+}
+
+
+/* Animasyon tetiklendiğinde */
+#home-msg.show {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+/* Tema uyumlu ANASAYFA yazısı rengi */
+body.light #home-msg { color: #333; }
+body.dark #home-msg { color: #fff; }
+
+
+body.light {
+    background: linear-gradient(135deg, #f5deb3, #e8d9c5);
+    color: #222;
+}
+
+body.dark {
+    background: linear-gradient(135deg, #3a145e, #000);
+    color: #fff;
+}
+
+
+/*  KAR YAĞMA ANİMASYONU  */
+
+/* ============================
+   ❄️ WINTER MODE - KAR ANİMASYONU
+   ============================ */
+
+#snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999999; /* DOKUNMA */
+}
+
+
+
+.snowflake {
+    position: absolute;
+    top: -20px;
+    color: white;
+    animation-name: fall;
+    animation-timing-function: linear;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(120vh);
+    }
+}
+
+
+
+/*  KAR YAĞMA ANİMASYONU  */
+
+#popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    z-index: 3000;
+}
+
+
+#popup-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#popup-box {
+    width: 320px;
+    padding: 24px;
+    border-radius: 18px;
+
+    background: var(--text-color);
+    color: var(--text-color);
+
+    transform: scale(0.85);
+    transition: transform 0.3s ease;
+}
+
+#popup-overlay.active #popup-box {
+    transform: scale(1);
+}
+
+#popup-close {
+    margin-top: 20px;
+    width: 100%;
+    height: 42px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: white;
+    color:black;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.contact-btn {
+    position: fixed;
+    top: 80px;
+    right: 40px;
+
+    min-width: 130px;
+    height: 48px;
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    background: linear-gradient(
+        135deg,
+        var(--accent-color),
+        rgba(255,255,255,0.15)
+    );
+
+    color: var(--text-color);
+
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+    filter: brightness(1.1);
+}
+
+.contact-btn:active {
+    transform: scale(0.96);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.popup-content{
+    background-color: #8585853b;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
 
 

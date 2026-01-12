@@ -1,3 +1,15 @@
 EN SON NELER YAPABİLİRİM KISMINDAKİ 
 4-5 ADET BUTONA BİR ŞEYLER EKLEYEBİLİRİZ ONLARA DA TIKLADIĞIMIZDA
 AYNI ŞEKİLDE İNTROYLA BERABER YAPTIĞIM ŞEYLER YAZABİLİR.
+
+---------
+
+İLETİŞİM BİLGİLERİ EKLENECEK
+LİNKEDİN AÇ VE SİTEYE EKLE.
+
+ana sayfaya ben kimim ekle.
+
+
+
+--------SON PROMPT-----------
+şöyle bir sorun keşfettim temayı değiştirdiğim zaman değiştirdiğim temadan doğru geçişler yapmasını istiyorum ama mesela gündüz temasındayken karanlık temaya geçiyorum ve yeteneklerimin olduğu sayfaya gittiğimde tema otomatik default olarak gelen temaya gidiyor
