@@ -627,7 +627,7 @@ body.dark {
     border-radius: 18px;
 
     background: var(--text-color);
-    color: var(--text-color);
+    color: var(--card-bg);
 
     transform: scale(0.85);
     transition: transform 0.3s ease;
@@ -645,8 +645,8 @@ body.dark {
     border: none;
     border-radius: 12px;
 
-    background: white;
-    color:black;
+    background: var(--card-bg);
+    color:var(--text-color);
     font-weight: 500;
     cursor: pointer;
 }
