@@ -13,3 +13,4 @@ ana sayfaya ben kimim ekle.
 
 --------SON PROMPT-----------
 şöyle bir sorun keşfettim temayı değiştirdiğim zaman değiştirdiğim temadan doğru geçişler yapmasını istiyorum ama mesela gündüz temasındayken karanlık temaya geçiyorum ve yeteneklerimin olduğu sayfaya gittiğimde tema otomatik default olarak gelen temaya gidiyor
+--
