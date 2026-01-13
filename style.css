@@ -798,3 +798,73 @@ position: relative;
     box-shadow: 0 0 12px rgba(192, 132, 252, 0.6);
 }
 
+/* ===========================
+   MOBİL UYUMLULUK – SKILLS
+   =========================== */
+
+@media (max-width: 768px) {
+
+    /* Ana container */
+    .skills-container {
+        padding: 20px 14px;
+    }
+
+    /* Skill kartları */
+    .skill-card {
+        width: 100%;
+        margin-bottom: 20px;
+        border-radius: 14px;
+    }
+
+    /* Kart başlığı */
+    .skill-card h3 {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 12px;
+    }
+
+    /* İç yazı alanı */
+    .skill-box {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        padding: 14px;
+    }
+
+    /* Detay butonu */
+    .detail-btn {
+        width: 100%;
+        margin-top: 14px;
+        padding: 12px 0;
+        font-size: 0.9rem;
+    }
+}
+
+
+/* ===========================
+   SABİT FOOTER – TÜM HAKLARI SAKLIDIR
+   =========================== */
+
+.site-footer {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-size: 0.75rem;
+    letter-spacing: 0.4px;
+    opacity: 0.7;
+    z-index: 1000;
+    pointer-events: none;
+
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Karanlık tema */
+body.dark .site-footer {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Aydınlık tema */
+body.light .site-footer {
+    color: rgba(0, 0, 0, 0.6);
+}
