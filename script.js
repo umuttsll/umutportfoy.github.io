@@ -205,6 +205,19 @@ popupClose.addEventListener("click", () => {
     popupOverlay.classList.remove("active");
 });
 
+//SKİLLS - DETAY BUTONU
+
+document.addEventListener("DOMContentLoaded", () => {
+    const detailButtons = document.querySelectorAll(".detail-btn");
+
+    detailButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            console.log("Detay sayfası daha sonra eklenecek");
+        });
+    });
+});
+
+
 
 
 
