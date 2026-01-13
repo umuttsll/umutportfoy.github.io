@@ -710,3 +710,49 @@ body.dark {
 
 
 
+.skills-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    padding: 25px;
+
+    backdrop-filter: blur(10px);
+
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s ease;
+}
+
+.skill-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skill-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+
+    background: linear-gradient(90deg, #7dd3fc, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.skill-content {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    padding: 18px;
+
+    line-height: 1.6;
+    font-size: 15px;
+    color: #e5e5e5;
+}
