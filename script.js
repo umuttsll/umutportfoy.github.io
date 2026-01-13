@@ -1,3 +1,17 @@
+
+let lastScrollY = window.scrollY;
+let scrollDirection = "down";
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > lastScrollY) {
+        scrollDirection = "down";
+    } else {
+        scrollDirection = "up";
+    }
+    lastScrollY = window.scrollY;
+});
+
+
 // ❄️ Snow fix – anasayfa reset
 window.addEventListener("load", () => {
     const oldMsg = document.getElementById("home-msg");
@@ -84,19 +98,38 @@ window.addEventListener("load", () => {
 
 
 // SCROLL ALGILAMA 
-const cards = document.querySelectorAll(".skill-card");
+const skillCards = document.querySelectorAll(".skill-card");
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-}, {
-    threshold: 0.2
-});
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach(entry => {
+            const card = entry.target;
 
-cards.forEach(card => observer.observe(card));
+            if (entry.isIntersecting) {
+
+                card.classList.remove("from-top", "from-bottom");
+
+                if (scrollDirection === "down") {
+                    card.classList.add("from-bottom");
+                } else {
+                    card.classList.add("from-top");
+                }
+
+                requestAnimationFrame(() => {
+                    card.classList.add("show");
+                });
+
+            } else {
+                card.classList.remove("show");
+            }
+        });
+    },
+    {
+        threshold: 0.25
+    }
+);
+
+skillCards.forEach(card => observer.observe(card));
 
 
 

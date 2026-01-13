@@ -326,28 +326,30 @@ body.dark .main-action-btn {
 
 .skill-card {
     opacity: 0;
-    transform: translateY(30px);
-    margin-bottom: 32px;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
 
-    padding: 28px;
-    border-radius: 20px;
+/* Aşağıdan gelen animasyon */
+.skill-card.from-bottom {
+    transform: translateY(60px);
+}
 
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(10px);
+/* Yukarıdan gelen animasyon */
+.skill-card.from-top {
+    transform: translateY(-60px);
+}
 
-    transition:
-        opacity 0.6s ease,
-        transform 0.6s ease;
+/* Görünür hali */
+.skill-card.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 body.dark .skill-card {
     background: rgba(0,0,0,0.35);
 }
 
-.skill-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 
 /*
@@ -656,9 +658,13 @@ body.dark {
 }
 
 .contact-btn {
-    position: fixed;
-    top: 80px;
-    right: 40px;
+    
+    margin-left: 100px;
+    display: block;              /* yataydan dikeye geç */
+    width: 180px;                /* boyutu aynı yap */
+    margin: 10px 21px 0 auto;    /* üstten 10px boşluk, yatayda ortala */
+    top: 20px;
+    right: 20px;
 
     min-width: 130px;
     height: 48px;
@@ -734,6 +740,12 @@ position: relative;
     opacity: 0;
     transform: translateY(60px);
     transition: all 0.8s ease;
+
+    
+    transition:
+        opacity 0.5s ease,
+        transform 0.6s ease;
+        threshold: 0.35
 }
 
 .skill-card.show {
@@ -785,3 +797,4 @@ position: relative;
     transform: translateY(-2px);
     box-shadow: 0 0 12px rgba(192, 132, 252, 0.6);
 }
+
