@@ -14,7 +14,7 @@
 
 /* TEMA DEĞİŞKENLERİ */
 :root {
-    --bg-gradient: linear-gradient(135deg, #4e6fa8, #fdf0e0);
+    --bg-gradient: linear-gradient(135deg, #4e84a8, #c0e0ff);
     --text-color: #1a1a1a;
     --card-bg: rgba(255, 255, 255, 0.75);
     --border-color: rgba(0, 0, 0, 0.1);
@@ -299,7 +299,7 @@ transition:
     letter-spacing: 0.08em;
     display: inline-block;
 
-    background: linear-gradient(135deg, #5581aa, #c8e2fa);
+    background: linear-gradient(135deg, #4e84a8, #c0e0ff);
     color: #1a1a1a;
 
     transition:
@@ -408,7 +408,7 @@ TAHMİNİMCE SKİLLS HTML İNİN CSS KISMI
     font-weight: 500;
     border-radius: 999px;
     text-decoration: none;
-    background: linear-gradient(135deg, #bfa27a, #e7d3b1);
+    background: linear-gradient(135deg, #4e84a8, #c0e0ff);
     color: #1a1a1a;
 
     transition: transform 0.3s ease, box-shadow 0.4s ease, opacity 0.3s ease;
@@ -417,7 +417,7 @@ TAHMİNİMCE SKİLLS HTML İNİN CSS KISMI
 /* Hover animasyonu ve glow */
 .back-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px 5px rgba(191, 162, 122, 0.6);
+    box-shadow: 0 0 20px 5px rgba(122, 154, 191, 0.6);
 }
 
 /* Dark Mode */
@@ -451,14 +451,14 @@ body.dark .back-btn:hover {
   border-radius: 15px;
   border: none;
   cursor: pointer;
-  background: linear-gradient(135deg, #bfa27a, #e7d3b1);
+  background: linear-gradient(135deg, #4e84a8, #c0e0ff);
   color: #1a1a1a;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .skill-btn:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 15px rgba(191, 162, 122, 0.6);
+  box-shadow: 0 0 15px rgba(122, 152, 191, 0.6);
 }
 
 body.dark .skill-btn {
@@ -493,7 +493,7 @@ body.dark .skill-btn {
 
 /* Aydınlık tema renkleri */
 body.light .theme-btn {
-    background: linear-gradient(135deg, #bfa27a, #e7d3b1); /* bej degrade */
+    background: linear-gradient(135deg, #4e84a8, #c0e0ff); /* bej degrade */
     color: #333;
 }
 
@@ -502,7 +502,7 @@ body.light .theme-btn:hover {
 }
 
 body.light #home-btn {
-    background: linear-gradient(135deg, #bfa27a, #e7d3b1); /* yeşil degrade */
+    background: linear-gradient(135deg, #4e84a8, #c0e0ff); /* yeşil degrade */
     color: #fff;
 }
 
@@ -559,7 +559,7 @@ body.dark #home-msg { color: #fff; }
 
 
 body.light {
-    background: linear-gradient(135deg, #f5deb3, #e8d9c5);
+    background: linear-gradient(135deg, #4e84a8, #c0e0ff);
     color: #222;
 }
 
