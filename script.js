@@ -1,4 +1,7 @@
 
+
+// HAKKIMDA BUTONU
+
 const aboutBtn = document.getElementById("about-btn");
 const aboutPopup = document.getElementById("about-popup");
 const aboutClose = document.getElementById("about-close");
@@ -20,7 +23,6 @@ if (aboutClose && aboutPopup) {
     });
 }
 
-
 //SCROLL
 let lastScrollY = window.scrollY;
 let scrollDirection = "down";
@@ -34,6 +36,33 @@ window.addEventListener("scroll", () => {
     lastScrollY = window.scrollY;
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    const overlay = document.getElementById("img-overlay");
+    const preview = document.getElementById("img-preview");
+    const closeBtn = document.getElementById("img-close");
+    const zoomImages = document.querySelectorAll(".zoom-img");
+
+    if (!overlay || !preview || !closeBtn || zoomImages.length === 0) return;
+
+    zoomImages.forEach(img => {
+        img.addEventListener("click", () => {
+            preview.src = img.src;
+            overlay.classList.add("active");
+        });
+    });
+
+    closeBtn.addEventListener("click", () => {
+        overlay.classList.remove("active");
+    });
+
+    overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) {
+            overlay.classList.remove("active");
+        }
+    });
+
+});
 
 // ❄️ Snow fix – anasayfa reset
 window.addEventListener("load", () => {
@@ -272,7 +301,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-
 
 

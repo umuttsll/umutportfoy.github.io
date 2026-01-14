@@ -1,5 +1,5 @@
 :root {
-    --glow-light: rgba(210, 180, 140, 0.55); /* Aydınlık tema glow */
+    --glow-light: rgba(140, 179, 210, 0.55); /* Aydınlık tema glow */
     --glow-dark: rgba(138, 43, 226, 0.55);  /* Karanlık tema glow */
     --active-glow: rgba(138, 43, 226, 0.55); /* Varsayılan */
 }
@@ -14,7 +14,7 @@
 
 /* TEMA DEĞİŞKENLERİ */
 :root {
-    --bg-gradient: linear-gradient(135deg, #cabba8, #fdf0e0);
+    --bg-gradient: linear-gradient(135deg, #4e6fa8, #fdf0e0);
     --text-color: #1a1a1a;
     --card-bg: rgba(255, 255, 255, 0.75);
     --border-color: rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@
 
 /* KARANLIK TEMA */
 body.dark {
-    --bg-gradient: linear-gradient(135deg, #09082e, #000000);
+    --bg-gradient: linear-gradient(135deg, #1e0041, #000000);
     --text-color: #f3f3f3;
     --card-bg: rgba(24, 24, 29, 0.85);
     --border-color: rgba(255, 255, 255, 0.08);
@@ -299,7 +299,7 @@ transition:
     letter-spacing: 0.08em;
     display: inline-block;
 
-    background: linear-gradient(135deg, #cabba8, #887e70);
+    background: linear-gradient(135deg, #5581aa, #c8e2fa);
     color: #1a1a1a;
 
     transition:
@@ -989,5 +989,94 @@ body.light .site-footer {
         letter-spacing: 1px;
         text-align: center;
     }
+}
+
+/* ===========================
+   SKILL GÖRSELLER
+=========================== */
+
+.skill-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+}
+
+.skill-images img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+
+    transition: 
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Hover – hafif büyüme */
+.skill-images img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    z-index: 2;
+}
+
+/* ===========================
+   GÖRSEL BÜYÜTME POPUP
+=========================== */
+
+#img-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    z-index: 9999;
+}
+
+#img-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+#img-preview {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 16px;
+
+    transform: scale(0.85);
+    transition: transform 0.35s ease;
+}
+
+#img-overlay.active #img-preview {
+    transform: scale(1);
+}
+
+/* KAPATMA TUŞU */
+#img-close {
+    position: absolute;
+    top: 22px;
+    right: 26px;
+
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#img-close:hover {
+    opacity: 1;
+    transform: scale(1.2);
 }
 
