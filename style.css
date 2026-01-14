@@ -367,7 +367,7 @@ TAHMİNİMCE SKİLLS HTML İNİN CSS KISMI
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 9000;
+    z-index: 9999;
 
     transition: opacity 0.6s ease;
 }
@@ -980,3 +980,14 @@ body.light .site-footer {
     background: rgba(0,0,0,0.15);
     line-height: 1.6;
 }
+
+/* MOBİL HİZALAMA */
+
+@media (max-width: 480px) {
+    .intro-title {
+        font-size: 22px;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+}
+
