@@ -608,7 +608,9 @@ body.dark {
 #popup-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
 
     display: flex;
     align-items: center;
@@ -616,32 +618,34 @@ body.dark {
 
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
-
-    z-index: 3000;
+    transition: opacity 0.4s ease;
 }
 
-
+/* Overlay aktif */
 #popup-overlay.active {
     opacity: 1;
     pointer-events: auto;
 }
 
+/* Popup kutusu */
 #popup-box {
-    width: 320px;
+    background: var(--card-bg);
     padding: 24px;
-    border-radius: 18px;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 420px;
 
-    background: var(--text-color);
-    color: var(--card-bg);
-
-    transform: scale(0.85);
-    transition: transform 0.3s ease;
+    transform: translateY(40px);
+    opacity: 0;
+    transition: all 0.4s ease;
 }
 
+/* Aktifken popup yukarı kayarak gelsin */
 #popup-overlay.active #popup-box {
-    transform: scale(1);
+    transform: translateY(0);
+    opacity: 1;
 }
+
 
 #popup-close {
     margin-top: 20px;
@@ -662,7 +666,7 @@ body.dark {
     margin-left: 100px;
     display: block;              /* yataydan dikeye geç */
     width: 180px;                /* boyutu aynı yap */
-    margin: 10px 21px 0 auto;    /* üstten 10px boşluk, yatayda ortala */
+    margin: 17px 21px 0 auto;    /* üstten 10px boşluk, yatayda ortala */
     top: 20px;
     right: 20px;
 
@@ -745,7 +749,6 @@ position: relative;
     transition:
         opacity 0.5s ease,
         transform 0.6s ease;
-        threshold: 0.35
 }
 
 .skill-card.show {
@@ -867,4 +870,113 @@ body.dark .site-footer {
 /* Aydınlık tema */
 body.light .site-footer {
     color: rgba(0, 0, 0, 0.6);
+}
+
+/* SANIRIM BURDAN ALTI HAKKIMDA KISMI */
+/* =========================
+   BEN KİMİM POPUP
+   ========================= */
+
+.about-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 9999;
+}
+
+.about-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Popup kutusu */
+.about-box {
+    position: relative;
+    width: 90%;
+    max-width: 480px;
+    padding: 26px;
+
+    background: var(--card-bg);
+    color: var(--text-color);
+
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+
+    transform: translateY(40px) scale(0.96);
+    opacity: 0;
+
+    transition: all 0.45s ease;
+}
+
+/* Açılırken */
+.about-overlay.active .about-box {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* Kapanırken */
+.about-overlay.closing .about-box {
+    transform: translateY(30px) scale(0.95);
+    opacity: 0;
+}
+
+/* X butonu */
+.about-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+    opacity: 0.7;
+
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.about-close:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+/* Üst alan */
+.about-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Foto */
+.about-photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(255,255,255,0.15);
+}
+
+.about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Metin alanı */
+.about-content {
+    padding: 16px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.15);
+    line-height: 1.6;
 }

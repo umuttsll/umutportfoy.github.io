@@ -1,4 +1,27 @@
 
+const aboutBtn = document.getElementById("about-btn");
+const aboutPopup = document.getElementById("about-popup");
+const aboutClose = document.getElementById("about-close");
+
+if (aboutBtn && aboutPopup) {
+    aboutBtn.addEventListener("click", () => {
+        aboutPopup.classList.add("active");
+    });
+}
+
+if (aboutClose && aboutPopup) {
+    aboutClose.addEventListener("click", () => {
+        aboutPopup.classList.add("closing");
+
+        setTimeout(() => {
+            aboutPopup.classList.remove("active");
+            aboutPopup.classList.remove("closing");
+        }, 450);
+    });
+}
+
+
+//SCROLL
 let lastScrollY = window.scrollY;
 let scrollDirection = "down";
 
@@ -249,8 +272,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-
 
 
 
